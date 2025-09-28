@@ -1,0 +1,22 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11
+
+TARGETS = signal1 signal2 timer
+
+all: signals
+
+signals: $(TARGETS)
+
+signal1: signal1.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+signal2: signal2.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+timer: timer.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(TARGETS) *.o
+
+.PHONY: all signals clean
